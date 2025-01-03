@@ -1,5 +1,7 @@
 from bellman_ford import bellman_ford
 from math import exp
+import matplotlib.pyplot as plt
+import networkx as nx
 
 def reconstruct_cycle(predecessors, start):
     cycle = []
@@ -13,6 +15,26 @@ def reconstruct_cycle(predecessors, start):
 def print_cycle(cycle, currency_names):
     path = ' -> '.join(currency_names[i] for i in cycle)
     print(f"{path}")
+
+def plot_arbitrage_graph(cycle, rates, currency_names):
+    G = nx.DiGraph()
+    labels = {}
+
+    for i in range(len(cycle) - 1):
+        u, v = cycle[i], cycle[i + 1]
+        G.add_edge(currency_names[u], currency_names[v])
+        labels[(currency_names[u], currency_names[v])] = f"{rates[i]:.5f}"
+
+    u, v = cycle[-1], cycle[0]
+    G.add_edge(currency_names[u], currency_names[v])
+    labels[(currency_names[u], currency_names[v])] = f"{rates[-1]:.5f}"
+
+    pos = nx.circular_layout(G) 
+    nx.draw(G, pos, with_labels=True, node_color='skyblue', node_size=10000, edge_color='k', linewidths=1, font_size=15)
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=labels, font_color='red')
+
+    plt.title("Arbitrage Cycle Graph")
+    plt.show()
 
 def calculate_profit(cycle, graph):
     profit = 1.0
@@ -32,7 +54,9 @@ def calculate_profit(cycle, graph):
     print_cycle(cycle, currency_names)
     print(f"Final amount after completing the cycle starting with {initial_amount} {currency_names[cycle[0]]}: {current_amount:.5f}")
     print(f"Total profit: {(profit - 1) * 100:.2f}%\n")
+    plot_arbitrage_graph(cycle, rates, currency_names) 
     return profit
+
 
 def is_valid_arbitrage_cycle(cycle, graph):
     product = 1.0
