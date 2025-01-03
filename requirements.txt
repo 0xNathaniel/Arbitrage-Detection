@@ -1,2 +1,4 @@
 requests>=2.26
 numpy>=1.21
+matplotlib>=3.4
+networkx>=2.5
