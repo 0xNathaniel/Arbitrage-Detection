@@ -95,21 +95,15 @@ Run the following command to execute the forex triangular arbitrage script:
 ```bash
 cd src
 python forex_triangular_arbtirage.py
-python cryptocurrency_triangular_arbtirage.py
-python cross_exchange_arbitrage.py
 ```
 Run the following command to execute the cryptocurrency triangular arbitrage script:
 ```bash
 cd src
-python forex_triangular_arbtirage.py
 python cryptocurrency_triangular_arbtirage.py
-python cross_exchange_arbitrage.py
 ```
 Run the following command to execute the cross exchange arbitrage script:
 ```bash
 cd src
-python forex_triangular_arbtirage.py
-python cryptocurrency_triangular_arbtirage.py
 python cross_exchange_arbitrage.py
 ```
 
