@@ -21,8 +21,8 @@ def get_price(coin_id, vs_currency):
 def create_conversion_matrix(prices):
     matrix = np.zeros((3, 3))
     
-    matrix[0, 2] = prices[0]
-    matrix[0, 3] = prices[1]
+    matrix[0, 1] = prices[0]
+    matrix[0, 2] = prices[1]
     matrix[1, 0] = prices[2]
     matrix[1, 2] = prices[3]
     matrix[2, 0] = prices[4]
@@ -46,7 +46,7 @@ def main():
 
     for _, (coin, currency) in pairs.items():
         price = get_price(coin, currency)
-        time.sleep(2)
+        time.sleep(6)
         if price is not None:
             print(f"Price of {coin.upper()}/{currency.upper()} is {price}")
             prices.append(price)
