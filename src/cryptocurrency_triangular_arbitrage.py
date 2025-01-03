@@ -46,6 +46,7 @@ def main():
 
     for _, (coin, currency) in pairs.items():
         price = get_price(coin, currency)
+        time.sleep(2)
         if price is not None:
             print(f"Price of {coin.upper()}/{currency.upper()} is {price}")
             prices.append(price)
