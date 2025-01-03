@@ -48,10 +48,8 @@ def create_cross_exchange_matrix(exchanges_price):
 def main():
     # Bitcoin price fetching using CoinGecko API
     exchanges = ['binance', 'kraken', 'coinbase', 'bitstamp']
-    #exchanges_price = get_bitcoin_price(exchanges)
-    exchanges_price = [40000, 39800, 40200, 40100]
+    exchanges_price = get_bitcoin_price(exchanges)
     print("\n")
-    #rates = [[exchanges_price[i]/exchanges_price[j] for j in range(len(exchanges))] for i in range(len(exchanges))]
     rates = create_cross_exchange_matrix(exchanges_price)
     
     graph = Graph(exchanges, rates)
