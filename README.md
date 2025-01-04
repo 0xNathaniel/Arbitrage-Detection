@@ -51,7 +51,7 @@ The project aims to quantify the frequency and profitability of these arbitrage 
 ## Project Structure
 
 ```plaintext
-📂 Crypto-Arbitrage-Analysis/
+📂 Arbitrage-Detection/
 ├── docs/                        # Documentation related to the project
 ├── img/                         # Folder containing generated visualizations and plots
 ├── src/                         # Source code folder containing Python scripts
