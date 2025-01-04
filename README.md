@@ -1,12 +1,14 @@
-# Cryptocurrency Arbitrage Analysis
+# Arbitrage Detection in Financial Markets: A Graph Theory Approach Using the Bellman-Ford Algorithm
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-![Requests](https://img.shields.io/badge/Requests-2.26%2B-brightgreen)
-![NumPy](https://img.shields.io/badge/NumPy-1.21%2B-orange)
-![matplotlib](https://img.shields.io/badge/matplotlib-3.4%2B-blue)
-![networkx](https://img.shields.io/badge/networkx-2.5%2B-brightgreen)
-![math](https://img.shields.io/badge/math-used-blueviolet)
-![time](https://img.shields.io/badge/time-used-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB) 
+![Requests](https://img.shields.io/badge/Requests-2.26%2B-FF6347) 
+![NumPy](https://img.shields.io/badge/NumPy-1.21%2B-013243) 
+![matplotlib](https://img.shields.io/badge/matplotlib-3.4%2B-FFC107) 
+![networkx](https://img.shields.io/badge/networkx-2.5%2B-7F52FF) 
+![math](https://img.shields.io/badge/math-used-FF4500) 
+![time](https://img.shields.io/badge/time-used-4682B4) 
+![datetime](https://img.shields.io/badge/datetime-used-32CD32) 
+
 
 
 This repository contains the implementation and analysis of various arbitrage strategies across cryptocurrency and forex markets. The project employs Python to detect potential arbitrage opportunities in cross-exchange and triangular trading scenarios, utilizing real-time data fetched from financial APIs like CoinGecko.
