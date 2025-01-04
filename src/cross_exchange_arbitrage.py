@@ -1,12 +1,12 @@
 from arbitrage import *
 from graph import Graph
 import numpy as np
+import datetime
 import requests
 import time
 
-URL = "https://api.coingecko.com/api/v3/coins/bitcoin/tickers"
-
 def get_bitcoin_price(exchanges):
+    URL = "https://api.coingecko.com/api/v3/coins/bitcoin/tickers"
     exchanges_price = []
     
     for exchange in exchanges:
@@ -48,8 +48,9 @@ def create_cross_exchange_matrix(exchanges_price):
 def main():
     # Bitcoin price fetching using CoinGecko API
     exchanges = ['binance', 'kraken', 'coinbase', 'bitstamp']
+    print("Fetching data from CoinGecko API...")
     exchanges_price = get_bitcoin_price(exchanges)
-    print("\n")
+    print(f"\nTime of data fetched: {datetime.datetime.now()}\n")
     rates = create_cross_exchange_matrix(exchanges_price)
     
     graph = Graph(exchanges, rates)

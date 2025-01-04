@@ -2,6 +2,7 @@
 from arbitrage import *
 from graph import Graph
 import numpy as np
+import datetime
 import requests
 import time
 
@@ -33,6 +34,8 @@ def create_conversion_matrix(prices):
     return matrix
 
 def main():
+    print("Fetching data from CoinGecko API...")
+    
     pairs = {
         "btc_eth": ("bitcoin", "eth"),
         "btc_xrp": ("bitcoin", "xrp"),
@@ -41,19 +44,17 @@ def main():
         "xrp_btc": ("ripple", "btc"),
         "xrp_eth": ("ripple", "eth")
     }
-    
     prices = []
-
     for _, (coin, currency) in pairs.items():
         price = get_price(coin, currency)
-        time.sleep(6)
+        time.sleep(10)
         if price is not None:
             print(f"Price of {coin.upper()}/{currency.upper()} is {price}")
             prices.append(price)
         else:
             print(f"Failed to fetch price for {coin.upper()}/{currency.upper()}")
-    print()
-            
+    print(f"\nTime of data fetched: {datetime.datetime.now()}\n")
+    
     rates = create_conversion_matrix(prices)
     graph = Graph(['BTC', 'ETH', 'XRP'], rates)
     detect_arbitrage(graph)
