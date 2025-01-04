@@ -29,11 +29,13 @@ def plot_arbitrage_graph(cycle, rates, currency_names):
     G.add_edge(currency_names[u], currency_names[v])
     labels[(currency_names[u], currency_names[v])] = f"{rates[-1]:.5f}"
 
-    pos = nx.circular_layout(G) 
-    nx.draw(G, pos, with_labels=True, node_color='skyblue', node_size=10000, edge_color='k', linewidths=1, font_size=15)
-    nx.draw_networkx_edge_labels(G, pos, edge_labels=labels, font_color='red')
+    pos = nx.circular_layout(G)
+    nx.draw(G, pos, with_labels=True, node_color='skyblue', node_size=20000, edge_color='k', linewidths=1, font_size=25)
 
-    plt.title("Arbitrage Cycle Graph")
+    edge_labels_font_size = 20  
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=labels, font_color='red', font_size=edge_labels_font_size)
+
+    plt.title("Arbitrage Cycle Graph", fontsize=20) 
     plt.show()
 
 def calculate_profit(cycle, graph):
@@ -66,7 +68,7 @@ def is_valid_arbitrage_cycle(cycle, graph):
         product *= rate
     return product > 1
 
-def detect_arbitrage(graph,):
+def detect_arbitrage(graph):
     for src in range(graph.vertices):
         has_cycle, predecessors = bellman_ford(graph, src)
         cycle = reconstruct_cycle(predecessors, src)[::-1]
