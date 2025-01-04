@@ -112,8 +112,14 @@ python cross_exchange_arbitrage.py
 ---
 
 ## Results
-- **Key Insights**
-  - abc
-  - abc
-- **Limitations**
-  - abc
+
+### Key Insights
+- **Effective Detection**: Successfully identifies triangular and cross-market arbitrage opportunities using the Bellman-Ford algorithm and graph theory.
+- **Adaptability**: Initially designed for triangular arbitrage, adaptable for cross-market scenarios with further modifications.
+- **Real-time Application**: Demonstrates potential for applying theoretical tools in real-time trading environments to exploit fleeting arbitrage opportunities.
+
+### Limitations
+- **Execution Speed**: Requires rapid execution to capitalize on fleeting arbitrage opportunities, which can be hindered by data latency and processing delays.
+- **Transaction Costs**: High transaction fees can significantly impact profitability, especially when multiple transactions are needed to complete arbitrage cycles.
+- **Market Volatility**: Assumptions about static exchange rates do not hold in volatile markets, and sufficient market liquidity is crucial for executing trades effectively.
+- **Practical Application**: Effective real-world application demands careful consideration of operational realities and market conditions.
